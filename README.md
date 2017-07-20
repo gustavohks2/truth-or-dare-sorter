@@ -1,1 +1,1 @@
-# truth-or-dare-sorter
+# Truth or Dare Sorter
