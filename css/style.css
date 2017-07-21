@@ -23,18 +23,29 @@ img, video { max-width: 100%; height: auto; }
   display: table;
 }
 
-.front-card-container,
-.back-card-container {
-  width: 30%;
-  opacity: 0;
-  min-width: 280px;
-  max-width: 520px;
-  min-height: 450px;
+.center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate3d(-50%, -50%, 0);
+}
+
+.perspective-container {
+  width: 30%;
+  opacity: 0;
+  min-width: 280px;
+  min-height: 500px;
+  max-width: 520px;
+  height: auto;
   animation: slideDown .8s ease-in-out .4s forwards;
+  perspective: 1200px;
+}
+
+.perspective-container h2 {
+  color: #474747;
+  font-weight: 100;
+  font-size: 2.45em;
+  text-align: center;
 }
 
 .front-card,
@@ -43,21 +54,22 @@ img, video { max-width: 100%; height: auto; }
   height: 100%;
   padding: 25px;
   background: #fff;
-  position: relative;
+  position: absolute;
   border-radius: 20px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transition: transform .6s ease-in-out;
+  backface-visibility: hidden;
+  top: 0;
+}
+
+.front-card {
+  z-index: 900;
 }
 
 .front-card button,
 .back-card button { cursor: pointer; }
 
-.front-card h2 {
-  color: #474747;
-  font-weight: 100;
-  margin-top: 10px;
-  font-size: 2.45em;
-  text-align: center;
-}
+.front-card h2 { margin-top: 10px; }
 
 .front-card .bottle {
   width: 40%;
@@ -97,23 +109,52 @@ img, video { max-width: 100%; height: auto; }
   display: inline-block;
 }
 
-.front-card .sort-btn {
-  width: 100%;
+.btn {
   color: #fff;
   padding: 10px;
-  margin-top: 15px;
-  border-radius: 5px;
-  background-color: #EB6B56;
+  margin-top: 10px;
   transition: background .2s ease-in-out;
 }
 
-.front-card .sort-btn:hover {
-  background: #c65b49;
+.front-card .sort-btn {
+  width: 100%;
+  border-radius: 5px;
+  background-color: #EB6B56;
 }
 
+.front-card .sort-btn:hover,
+.back-card .play-again:hover { background: #c65b49; }
+
 .back-card {
-  display: none;
+  height: 100%;
+  display: flex;
+  z-index: 800;
+  flex-direction: column;
+  justify-content: center;
+  transform: rotateY(-180deg);
 }
+
+.back-card h2 {
+  color: #474747;
+  font-weight: 100;
+  margin-top: 10px;
+  font-size: 2.45em;
+  text-align: center;
+}
+
+.back-card p#result {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 1.3em;
+}
+
+.back-card button.sort-again  { background-color: #B05F6D; }
+.back-card button.play-again  { background-color: #EB6B56; }
+
+.back-card button.sort-again:hover  { background-color: #874752; }
+
+.front-card.active { transform: rotateY(180deg); }
+.front-card.active + .back-card { transform: rotateY(0deg); }
 
 @keyframes slideDown {
   0% { opacity: 0; transform: translate3d(-50%, -100%, 0);}
