@@ -12,18 +12,32 @@
     <title>Truth or Dare Sorter</title>
   </head>
   <body>
-    <section class="front-card">
-      <div class="bottle"></div>
-      <div class="tags-container">
-        <span class="applicant">Gustavo</span>
+    <section class="back-card-container">
+      <div class="back-card">
+        <h2>The winner was</h2>
+        <p id="result">Gustavo</p>
+        <button id="play-again-btn" type="button" class="play-again btn">Play Again</button>
+        <button id="sort-again-btn" type="button" class="sort-again btn">Sort Again</button>
       </div>
-      <button id="add-applicant-btn" type="button" class="add-applicant btn">Add</button>
     </section>
-    <section class="back-card">
-      <h2>The winner was</h2>
-      <p id="result">Gustavo</p>
-      <button id="play-again-btn" type="button" class="play-again btn">Play Again</button>
-      <button id="sort-again-btn" type="button" class="sort-again btn">Sort Again</button>
+    <section class="front-card-container">
+      <div class="front-card">
+        <h2>Truth or Dare Sorter</h2>
+        <div class="bottle"></div>
+        <input type="text" placeholder="Appliant">
+        <button id="add-applicant-btn" type="button" class="add-applicant">Add</button>
+        <div class="tags-container">
+          <span class="applicant" style="background-color: #FFC153;">Gustavo</span>
+          <span class="applicant" style="background-color: #B05F6D;">Allana</span>
+          <span class="applicant" style="background-color: #47B39D;">Miguel</span>
+          <span class="applicant" style="background-color: #EB6B56;">Gabriel</span>
+          <span class="applicant" style="background-color: #FFC153;">Marlene</span>
+          <span class="applicant" style="background-color: #47B39D;">Augusto</span>
+          <span class="applicant" style="background-color: #B05F6D;">Jairo</span>
+          <span class="applicant" style="background-color: #EB6B56;">Dingo</span>
+        </div>
+        <button id="sort-btn" type="button" name="button" class="sort-btn">Sort</button>
+      </div>
     </section>
     <script src="js/main.js"></script>
   </body>
