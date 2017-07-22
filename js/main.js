@@ -42,7 +42,7 @@
   }
 
   this.validate = function(value) {
-    if(value !== "") {
+    if(applicants.indexOf(value) < 0 && value !== "") {
       return true;
     }
     return false;
