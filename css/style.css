@@ -114,6 +114,7 @@ img, video { max-width: 100%; height: auto; }
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+  text-transform: capitalize;
   transition: background-color .3s ease;
 }
 
