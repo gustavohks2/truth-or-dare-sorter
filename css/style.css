@@ -103,11 +103,34 @@ img, video { max-width: 100%; height: auto; }
 
 .front-card .tags-container .applicant {
   color: #fff;
-  margin-top: 5px;
+  cursor: pointer;
   padding: 3px 8px;
+  overflow: hidden;
+  position: relative;
   border-radius: 5px;
+  margin: 5px 3px 0 0;
   display: inline-block;
+  transition: background-color .3s ease;
 }
+
+.front-card .tags-container .applicant:after {
+  font-family: FontAwesome;
+  position: absolute;
+  content: "\f00d";
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  transition: transform .25s ease;
+  transform: translate3d(-50%, -60px, 0);
+}
+
+.front-card .tags-container .applicant:nth-child(4n+1) { background-color: #FFC153; }
+.front-card .tags-container .applicant:nth-child(4n+2) { background-color: #B05F6D; }
+.front-card .tags-container .applicant:nth-child(4n+3) { background-color: #47B39D; }
+.front-card .tags-container .applicant:nth-child(4n+4) { background-color: #EB6B56; }
+
+.front-card .tags-container .applicant:hover { background-color: #ce1023; color: transparent; }
+.front-card .tags-container .applicant:hover:after { transform: translate3d(-50%, -50%, 0); }
 
 .btn {
   color: #fff;
