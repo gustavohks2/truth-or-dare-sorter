@@ -7,6 +7,7 @@
   this.init = function() {
     updateApplicants();
     addApplicant();
+    sortApplicant();
   }
 
   this.updateApplicants = function() {
@@ -63,6 +64,33 @@
         deleteTag(this);
       });
     });
+  }
+
+  this.sortApplicant = function() {
+    const result = document.querySelector("#result"),
+          frontCard = document.querySelector(".front-card");
+    let randNumb = 0;
+
+    function sort(evt) {
+      if(evt.target.id === "sort-btn") {
+        if(applicants.length > 1) {
+          randNumb = Math.floor(Math.random() * applicants.length);
+          result.innerHTML = applicants[randNumb];
+          frontCard.classList.toggle("active");
+        } else {
+          console.log("Error");
+        }
+      } else if(evt.target.id === "sort-again-btn") {
+        randNumb = Math.floor(Math.random() * applicants.length);
+        result.innerHTML = applicants[randNumb];
+      } else if(evt.target.id === "play-again-btn") {
+        frontCard.classList.toggle("active");
+      }
+    }
+
+    document.querySelector("#sort-btn").addEventListener("click", sort);
+    document.querySelector("#sort-again-btn").addEventListener("click", sort);
+    document.querySelector("#play-again-btn").addEventListener("click", sort);
   }
 
   init();
