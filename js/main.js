@@ -11,9 +11,9 @@
 
   this.updateApplicants = function() {
     template = "";
-    
+
     applicants.forEach(function(applicant) {
-      template += '<span class="applicant" style="background-color: darkgrey;">' + applicant + '</span>';
+      template += '<span class="applicant">' + applicant + '</span>';
     });
 
     tagsContainer.innerHTML = "";
