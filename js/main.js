@@ -12,12 +12,13 @@
   this.updateApplicants = function() {
     template = "";
 
-    applicants.forEach(function(applicant) {
-      template += '<span class="applicant">' + applicant + '</span>';
+    applicants.forEach(function(applicant, i) {
+      template += '<span class="applicant" data-number="' + i + '">' + applicant + '</span>';
     });
 
     tagsContainer.innerHTML = "";
     tagsContainer.insertAdjacentHTML("afterbegin", template);
+    deleteApplicant();
   }
 
   this.addApplicant = function() {
@@ -46,6 +47,22 @@
       return true;
     }
     return false;
+  }
+
+  this.deleteApplicant = function() {
+    let applicantTags = document.querySelectorAll(".applicant");
+
+    function deleteTag(element) {
+      let id = element.getAttribute("data-number");
+      applicants.splice(id, 1);
+      updateApplicants();
+    }
+
+    applicantTags.forEach(function(applicantTag) {
+      applicantTag.addEventListener("click", function() {
+        deleteTag(this);
+      });
+    });
   }
 
   init();
