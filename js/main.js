@@ -29,8 +29,8 @@
 
     function grabApplicant(evt) {
       if(evt.type === "click" || evt.which === 13 || evt.keyCode === 13) {
-        if(validate(applicantInput.value)) {
-          let newApplicant = applicantInput.value.toLowerCase();
+        let newApplicant = applicantInput.value.toLowerCase();
+        if(validate(newApplicant)) {
           applicants.push(newApplicant);
           applicantInput.value = "";
           updateApplicants();
