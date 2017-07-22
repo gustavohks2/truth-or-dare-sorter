@@ -110,6 +110,10 @@ img, video { max-width: 100%; height: auto; }
   border-radius: 5px;
   margin: 5px 3px 0 0;
   display: inline-block;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   transition: background-color .3s ease;
 }
 
